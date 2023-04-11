@@ -1,5 +1,5 @@
 <?php
-// include 'profile.php';
+
 include 'db.php';
 
 
@@ -12,7 +12,7 @@ include 'db.php';
     <meta charset="UTF-8">
     <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="admin.css">
+    <!-- <link rel="stylesheet" href="admin.css"> -->
     <link rel="stylesheet" href="profile.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -28,7 +28,7 @@ include 'db.php';
       </i>
       
     </div>
-      <ul class="nav-links">
+      <ul class="nav-links" style="padding-left: 0px;">
         <!-- <li>
           <a href="home.php" class="active">
             <i class='bx bx-grid-alt' ></i>

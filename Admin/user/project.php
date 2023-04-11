@@ -1,35 +1,9 @@
 <?php
-include 'dashboard.php';
+// include 'dashboard.php';
 include 'top.php';
 
 include 'db.php';
-
-// $id = $_GET['id'];
-// if(isset($_GET['checkbox'])){
-
-//       $url = "SELECT * FROM project WHERE id = '$id'";
-//       print_r($url);
-//       exit;
-//       $image = mysqli_query($db, $url);
-
-//       $ids=implode(',',$_GET['checkbox']);
-// // print_r($ids);
-// // exit;
-//       $query = "DELETE FROM project WHERE id IN($ids)";
-     
-//       $query_run = mysqli_query($db, $query);
-    
-//       if($query_run != 0)
-//       {
-//           $_SESSION['status'] = "Multiple Data Deleted Successfully";
-//       }
-//       else
-//       {
-//           $_SESSION['status'] = "Multiple Data Not Deleted";
-//       }
-//   }
-  
-// ?>
+ ?>
 
 
 <!DOCTYPE html>

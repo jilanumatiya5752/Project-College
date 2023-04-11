@@ -28,8 +28,6 @@ include 'db.php';
       
     </div>
     <ul class="nav-links" style="padding-left: 0px;">
-  
-     
         <li>
           <a href="project.php">
             <i class='bx bx-box' ></i>

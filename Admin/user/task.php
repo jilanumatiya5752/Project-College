@@ -67,7 +67,7 @@ table, th, td {
 	 { 
 		 ?>
 		 <div style="padding-top: 100px;font-size: 20px;font-weight: lighter;color: black;" align="center">
-	  <h2 style="color: darkred;font-size:3rem;" class=""><?php echo $row['Projectname'] ?></h2>
+	  <h2  class="card-title"><?php echo $row['Projectname'] ?></h2>
 	  </div>
  <?php } ?>
  <br>
@@ -123,7 +123,7 @@ table, th, td {
 				<td><?php echo $row['id']?></td>
 				<td name="task"  value="<?php echo $row['id'] ?>"><?php echo $row['task']?></td>
 				<td><button id="btn" class="Completed" name="cmt"><a href="bottom.php?id=<?= $row["id"]; ?>">Completed</a></button></td>
-                <td><button style="font-size: 1.5rem;" type="button" id="popupbtn" class="btn btn-danger popup-buton" data-toggle="modal" data-id ="<?php echo $row['id']?>" data-target="#myModal<?php echo $row['id']?>">View</button></td>
+                <td><button  type="button" id="popupbtn" class="btn btn-danger popup-buton" data-toggle="modal" data-id ="<?php echo $row['id']?>" data-target="#myModal<?php echo $row['id']?>">View</button></td>
 			</tr>
 
 			<div class="fixeds-left" >
@@ -156,7 +156,7 @@ table, th, td {
 						}
 						?>
 						<span>
-						<h5 style="font-size: 2.25rem;">Member: 
+						<h5>Member: 
 						<?php foreach($x as $p) { 
 				
 						$a = "SELECT * FROM `Register` WHERE id = '$p'";
@@ -183,7 +183,7 @@ table, th, td {
 					
 					</span>
 						
-					<h4 style="font-size: 2.25rem;">Discussion:-</h4>
+					<h4>Discussion:-</h4>
 					<div class="container" style="display:block;border: 1px solid black;">
                    <div class="d-flex justify-content-center row">
                    <div class="col-md-8">
@@ -236,7 +236,7 @@ table, th, td {
 				
 				<div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px"><textarea class="form-control ml-1 shadow-none textarea" name="comment" required></textarea></div>
 				<input type="hidden" value="1" name="cmt">
-				<div class="mt-2 text-right"><center><button style="font-size: 1.875rem;"id="cmt"class="btn btn-primary btn-sm shadow-none popup" type="submit" name="post">Post comment</button></center></div>
+				<div class="mt-2 text-right"><center><button id="cmt"class="btn btn-primary btn-sm shadow-none popup" type="submit" name="post">Post comment</button></center></div>
                 </div>
 			</form>
 			</div> 

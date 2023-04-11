@@ -69,7 +69,8 @@ foreach($query as $row) {
             <img class="rounded-circle" src="upload/<?= $row['image']; ?>" height="25px" width="25px">
             <?= $output ?>
         </span>
-			<?php
+	
+	<?php
 			}
 	}
 		elseif ($row['cmt']==0) {
