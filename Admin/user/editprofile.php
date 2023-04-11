@@ -22,10 +22,9 @@ $projectname=$res['projectname'];
 <head>
     <title>Edit Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
 </head>
 <body>
 <div class="container">
@@ -104,8 +103,12 @@ foreach($error as $error){
      <form method="post" enctype='multipart/form-data' action="">
           <div class="row">
             <div class="col"></div>
-           <div class="col-6"> 
-            <center>
+           <div class=""> 
+            <div align="">
+              <h2>Edit Profile</h2>
+            </div>
+            <br>
+            <br>
               <?php
                 $id = $_GET['id'];
                 $sql ="SELECT * FROM `Register` WHERE `id`='$id'";
@@ -121,17 +124,17 @@ foreach($error as $error){
                  if($image==NULL)
             
                 {
-                 echo '<img src="http://localhost/jilanumatiya/Projecttask/Admin/user/upload/'.$image.'" style="height:80px;width:auto;border-radius:50%;">';
-                } else { echo '<img src="upload/'.$image.'" style="height:50px;width:auto;border-radius:25%;">';}?> 
+                 echo '<img src="http://localhost/jilanumatiya/Projecttask/Admin/user/upload/'.$image.'" style="height:80px;width:auto;border-radius:30%;">';
+                } else { echo '<img src="upload/'.$image.'" style="height:50%;width:auto;border-radius:5%;">';}?> 
               <?php
                 }
               ?>
-               <div class="form-group">
+               <div class="">
                 <label>Change Image &#8595;</label>
-                <input class="form-control" type="file" name="image" style="width:50%;" >
+                <input class="form-control" type="file" name="image" style="width:100%;" >
             </div>
                 <br>      
-  </center>
+  
            </div>
             
           </div>
@@ -139,7 +142,7 @@ foreach($error as $error){
           <div class="form-group">
           <div class="row"> 
             <div class="col-3">
-                <label>name</label>
+                <label>Name:-</label>
             </div>
              <div class="col">
                 <input type="text" name="name" value="<?php echo $name;?>" class="form-control">
@@ -149,7 +152,7 @@ foreach($error as $error){
       <div class="form-group">
       <div class="row"> 
       <div class="col-3">
-                <label>email</label>
+                <label>Email:-</label>
             </div>
              <div class="col">
                 <input type="text" name="email" value="<?php echo $email;?>" class="form-control">
@@ -159,7 +162,7 @@ foreach($error as $error){
       <div class="form-group">
       <div class="row"> 
       <div class="col-3">
-                <label>projectname</label>
+                <label>Projectname:-</label>
             </div>
              <div class="col">
                 <input type="text" name="projectname" value="<?php echo $projectname;?>" class="form-control">
@@ -181,8 +184,8 @@ foreach($error as $error){
         </div>
     </div>
 </div> 
-<div class="col"><p><a href="logout.php"><span style="color:red;">Logout</span> </a></p>
-</div>
+
+
 </body>
 </html>
 

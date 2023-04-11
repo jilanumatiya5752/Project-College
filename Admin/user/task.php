@@ -150,7 +150,7 @@ table, th, td {
                             ?>
 						
 					<div align="left">
-					<h5 style="font-size: 2.25rem;" class="card-title"<?= $row["Projectname"]; ?>>Project:<?= $row['Projectname'];?></h5>
+					<h5  class="card-title"<?= $row["Projectname"]; ?>>Project:<?= $row['Projectname'];?></h5>
 					<?php
 							}
 						}
