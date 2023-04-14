@@ -26,24 +26,7 @@ $i="insert into tsk(task,userid,createdby,category,type)values('$task','$userid'
 
   
    ?>
-<?php	
-
-if(isset($_POST['post'])){
-	
-    $id=$_SESSION['id'];
-	 $userid =  $id;
-    		
-$comment = $_POST['comment'];
-$category = $_POST['cmtid'];
-$cmt = $_POST['cmt'];
-$i="insert into cmt(comment,cmtid,userid,cmt)values('$comment','$category','$userid','$cmt')";
-// print_r($i);
-// exit;	
-$result = mysqli_query($db,$i);
-}
-// header('location:task.php?id=$id');
-?>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -60,9 +43,8 @@ $result = mysqli_query($db,$i);
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="view.js"></script>
+    <script src="admin.js"></script>
 
-
-    </script>
     <title>Document</title>
     <style>
     table,
@@ -152,12 +134,13 @@ $result = mysqli_query($db,$query);
         </button>
 
 
-        <?php
+<?php
 $categoryid = $_GET['id'];
 
 // $db = mysqli_connect("localhost:3306","root","Root#123","jilan");
 $query = "SELECT * FROM `project` WHERE id='$categoryid'";
-
+// print_r($query);
+// exit;
 $query_run  = mysqli_query($db,$query);
 
 if(mysqli_num_rows($query_run) > 0)
@@ -228,7 +211,7 @@ if(mysqli_num_rows($query_run) > 0)
             if(mysqli_num_rows($query) > 0)
                 {
                     foreach($query as $les)   
-            // 		print_r($les);
+            		// print_r($les);
             // exit;
                 {
                     ?>
@@ -391,19 +374,19 @@ if(mysqli_num_rows($query_run) > 0)
              </div>
              </td>
                  <br>
-             <input type="hidden" name="cmtid" class="popup" value=<?php echo $category; ?>>
-             <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px"><textarea class="form-control ml-1 shadow-none textarea" name="comment" required></textarea></div>
-
-             <input type="hidden" value="0" name="cmt">
-             <div class="mt-2 text-right"><center><button id="cmt"class="btn btn-primary btn-sm shadow-none popup"type="submit" name="post">Postcomment</button></center>
-             </div>
-         </div>
+                 <input type="hidden" name="cmtid" class="cmtid" value=<?= $les['id']; ?>>            
+                 <div class="d-flex flex-row align-items-start image"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px">
+				<textarea class="form-control ml-1 shadow-none textarea" id="msg" name="comment" required></textarea></div>
+				<input type="hidden" value="0" class="cmt" name="cmt">
+				<div class="mt-2 text-right"><center><button id="btn"class="btn btn-primary btn-sm shadow-none post" name="post" data-toggle="modal" formData ="<?php echo $les['id']?>" data-target="#post<?php echo $les['id']?>">Post comment</button></center></div>
+                </div>
          </form>
      </div>
 
      <?php 
 		}
-}?>
+}
+?>
 
  </div>
 </div>
@@ -430,13 +413,3 @@ if(mysqli_num_rows($query_run) > 0)
 </body>
 
 </html>
-
-<script>
-$(document).ready(function() {
-    $("#popupbtn").click(function() {
-        //   alert("kjfsydgbsfhgdfdf");    
-        $("#myModal").toggle();
-    });
-});
-
-</scrip>

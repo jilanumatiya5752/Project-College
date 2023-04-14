@@ -1,7 +1,6 @@
 
 <?php
 include 'db.php';
-
 session_start();
 ?>
 <!DOCTYPE html>
@@ -19,8 +18,8 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="view.js"></script>
-
+    <script src="jilan.js"></script>
+	
 	<title>Document</title>
 </head>
 <body>
@@ -43,14 +42,16 @@ $id = $_GET['action'];
 // print_r($id);
 // exit;
 $i = "SELECT * FROM cmt where cmtid = $id";
+// echo $i;
+// exit;
 $query = mysqli_query($db,$i);
 
 foreach($query as $row) {
-	// print_r($row);
+	// print_r($row);	
 	// exit;
 	$userid = $row['userid'];
 	$output="";
-	$output.='<p>'.$row['comment'].'</p>';	
+	$output='<p>'.$row['comment'].'</p>';	
 	// print_r($output);
 	// exit;
 	if ($row['cmt']==1){
@@ -58,10 +59,13 @@ foreach($query as $row) {
 
 		<?php
          $query = "SELECT * FROM Register where id IN ($userid)";
+			// print_r($query);
+			// exit;
 		 $query_run  = mysqli_query($db,$query);
             $result = mysqli_num_rows($query_run);                                         
             foreach($query_run as $row)
-			
+			// print_r($row);
+			// exit;
             {
 
 		?>
@@ -76,9 +80,10 @@ foreach($query as $row) {
 		elseif ($row['cmt']==0) {
 	
 			?>
-			<?php
+			 <?php
 			$query = "SELECT * FROM Register where id IN ($userid)";
-			
+			// print_r($query);
+			// exit;
 			$query_run  = mysqli_query($db,$query);
             $result = mysqli_num_rows($query_run);                                         
             foreach($query_run as $row)
@@ -86,7 +91,7 @@ foreach($query as $row) {
             {
 				
 			  
-        ?> 
+        ?>  
 		 <span class="d-flex flex-row align-items-start">
             <img class="rounded-circle" src="upload/<?= $row['image']; ?>" height="25px" width="25px">
             <?= $output ?>

@@ -1,6 +1,7 @@
 
 <?php
 include 'db.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,7 @@ include 'db.php';
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="view.js"></script>
-
+	
 	<title>Document</title>
 </head>
 <body>
@@ -45,27 +46,47 @@ $i = "SELECT * FROM cmt where cmtid = $id";
 $query = mysqli_query($db,$i);
 
 foreach($query as $row) {
+	// print_r($row);
 	$userid = $row['userid'];
 	// print_r($userid);
 	// exit;
 	$output="";
-	$output.='<p>'.$row['comment'].'</p>';	
+	$output='<p>'.$row['comment'].'</p>';	
 	// print_r($output);
 	// exit;
 	if ($row['cmt']==0){
 		?>
-			<span class="d-flex flex-row align-items-start"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px"><?php echo $output?></span>
-			
+		<?php
+         $query = "SELECT * FROM Register where id IN ($userid)";
+			// print_r($query);
+			// exit;
+		 $query_run  = mysqli_query($db,$query);
+            $result = mysqli_num_rows($query_run);                                         
+            foreach($query_run as $row)
+			// print_r($row);
+			// exit;
+            {
+
+		?>
+			<span class="d-flex flex-row align-items-start">
+				<img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px">
+			<?= $output?>
+		</span>
+			<?php
+			}
+		}
+		
 	
-	<?php
-	}elseif ($row['cmt']==1) {
+	elseif ($row['cmt']==1) {
 			$query = "SELECT * FROM Register where id IN ($userid)";
-			
+			// print_r($query);
+			// exit;
 			$query_run  = mysqli_query($db,$query);
             $result = mysqli_num_rows($query_run);                                         
             foreach($query_run as $row)
             {
-
+				// print_r($row);
+				// exit;
 	?>
 	<span class="d-flex flex-row align-items-start">
             <img class="rounded-circle" src="upload/<?= $row['image']; ?>" height="25px" width="25px">

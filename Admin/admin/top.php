@@ -105,11 +105,11 @@ sidebarBtn.onclick = function() {
 }
  </script>
 <script>
-   $( function() {
-    $( ".search-box" ).autocomplete({
-    source: 'backend-script.php'  
-    });
-});
+//    $(function() {
+//     $( ".search-box" ).autocomplete({
+//     source: 'backend-script.php'  
+//     });
+// });
 </script>
 </body>
 </html>

@@ -1,25 +1,10 @@
 <?php
 include 'db.php';
 include 'top.php';	
-?>
-<?php	
-if(isset($_POST['post'])){
-	
-$id=$_SESSION['id'];
-$userid =  $id;
-		
-$comment = $_POST['comment'];
-$category = $_POST['cmtid'];
-$cmt = $_POST['cmt'];
-// if(user = 0){
-$i="insert into cmt(comment,cmtid,userid,cmt)values('$comment','$category','$userid','$cmt')";
-// print_r($i);
-// exit;	
-$result = mysqli_query($db,$i);
-// }
-}
-// header('Location: task.php');
-?>
+?><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +19,7 @@ $result = mysqli_query($db,$i);
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="jilan.js"></script>
+	<script src="data.js"></script>
 	<title>Document</title>
 	<style>
 table, th, td {
@@ -53,7 +39,7 @@ table, th, td {
 
 
 <body>
-<form action="" method="post" id="form">
+<!-- <form action="" method="post" id="form"> -->
 	 <?php
 	 $id = $_GET['id'];
 	 $query = "SELECT * FROM project where id = $id";
@@ -113,44 +99,47 @@ table, th, td {
 					//  exit;
 					 $query = mysqli_query($db,$a);
 					
-						 foreach($query as $row)   
+						 foreach($query as $gty)   
 						
 					 {
 						// print_r($row);
 						// exit;
 			?>
 			<tr>
-				<td><?php echo $row['id']?></td>
-				<td name="task"  value="<?php echo $row['id'] ?>"><?php echo $row['task']?></td>
-				<td><button id="btn" class="Completed" name="cmt"><a href="bottom.php?id=<?= $row["id"]; ?>">Completed</a></button></td>
-                <td><button  type="button" id="popupbtn" class="btn btn-danger popup-buton" data-toggle="modal" data-id ="<?php echo $row['id']?>" data-target="#myModal<?php echo $row['id']?>">View</button></td>
+				<td><?php echo $gty['id']?></td>
+				<td name="task"  value="<?php echo $gty['id'] ?>"><?php echo $gty['task']?></td>
+				<td><button id="btn" class="Completed" name="cmt"><a href="bottom.php?id=<?= $gty["id"]; ?>">Completed</a></button></td>
+                <td><button  type="button" id="popupbtn" class="btn btn-danger popup-buton" data-toggle="modal" data-id ="<?php echo $gty['id']?>" data-target="#myModal<?php echo $gty['id']?>">View</button></td>
 			</tr>
 
 			<div class="fixeds-left" >
-            <div id="myModal<?php echo $row['id'] ?>" class="modal fade" role="dialog">
+            <div id="myModal<?php echo $gty['id'] ?>" class="modal fade" role="dialog">
 			<div class="modal-dialog" >
 			    <div class="modal-content">
 					<div class="modal-header">
-					<h4 class="modal-title"style="color:blue"><?php echo $row['task']; ?></h4>
+					<h4 class="modal-title"style="color:blue"><?php echo $gty['task']; ?></h4>
 						 <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
 						    
 				    </div>
 				  
 					<?php
 					$id = $_GET['id'];
+					
 					$a = "SELECT * FROM `project` WHERE id = '$id'";
+					// print_r($a);
+					// exit;
 					$query_run  = mysqli_query($db,$a);
 
 						if(mysqli_num_rows($query_run) > 0)
 						{
-							foreach($query_run as $row)
+							foreach($query_run as $xes)
 
 							{
-						
+						// print_r($xes);
                             ?>
 						
 					<div align="left">
-					<h5  class="card-title"<?= $row["Projectname"]; ?>>Project:<?= $row['Projectname'];?></h5>
+					<h5  class="card-title"<?= $xes["Projectname"]; ?>>Project:<?= $xes['Projectname'];?></h5>
 					<?php
 							}
 						}
@@ -160,7 +149,7 @@ table, th, td {
 						<?php foreach($x as $p) { 
 				
 						$a = "SELECT * FROM `Register` WHERE id = '$p'";
-								
+								// print_r($a);
 						$query_run  = mysqli_query($db,$a);
 					
 						if(mysqli_num_rows($query_run) > 0)
@@ -201,6 +190,7 @@ table, th, td {
 						foreach($query_run as $res)
 					
 							{
+								// print_r($res);
 					?>
                     <div class="d-flex flex-row user-info"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px">
                         <div class="d-flex flex-column justify-content-start ml-2"><span style="font-size: 17px;"class="d-block font-weight-bold name"><?php echo $res['name']?></span></div>
@@ -209,22 +199,23 @@ table, th, td {
 				<div class="bg-light p-2">
 					<div class="popup-data-loadin" style="font-size: larger; font-style:bolde;"></div>
 
-               <form method="post" action="">
+    
+					<form method="post" action="" >
 			   <?php
 				$category = $_GET['id'];
-		
-				$i = "SELECT * FROM `tsk` WHERE category = '$category'";
-				
-				$query = mysqli_query($db,$i);
-				
-				if(mysqli_num_rows($query) > 0)
-					{
-						while($row = mysqli_fetch_array($query))  
-						// print_r($row);
+				// print_r($category);
+				// exit;
+					$i = "SELECT * FROM `tsk` WHERE category = '$category'";
+						// print_r($i);
 						// exit;
-					{
+					$query = mysqli_query($db,$i);
+	
+					if(mysqli_num_rows($query) > 0)
+						{
+							while($row = mysqli_fetch_array($query)) {
+									// print_r($row);
 				?>
-               <h3 class="card-title" style="display:none"><?= $row['category'];?></h3>
+               <h3 class="card-title cat"  style="display:none"><?= $les['category'];?></h3>
 			   <?php
 					}
 
@@ -232,13 +223,14 @@ table, th, td {
 			   ?></div>
 			   </td>
 				   <br>
-				   <input type="hidden" name="cmtid" class="popup" value=<?php echo $category; ?>>
+				   <input type="hidden" name="cmtid" class="cmtid" value=<?= $gty['id']; ?>>
 				
-				<div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px"><textarea class="form-control ml-1 shadow-none textarea" name="comment" required></textarea></div>
-				<input type="hidden" value="1" name="cmt">
-				<div class="mt-2 text-right"><center><button id="cmt"class="btn btn-primary btn-sm shadow-none popup" type="submit" name="post">Post comment</button></center></div>
+				<div class="d-flex flex-row align-items-start image"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px">
+				<textarea class="form-control ml-1 shadow-none textarea" id="msg" name="comment" required></textarea></div>
+				<input type="hidden" value="1" class="cmt" name="cmt">
+				<div class="mt-2 text-right"><center><button id="btn"class="btn btn-primary btn-sm shadow-none post" name="post" data-toggle="modal" formData ="<?php echo $gty['id']?>" data-target="#post<?php echo $gty['id']?>">Post comment</button></center></div>
                 </div>
-			</form>
+	</form>
 			</div> 
 
 			<?php 
@@ -265,15 +257,7 @@ table, th, td {
 	 </table>
 	</div>
 	</div>
-	</form>
+	<!-- </form> -->
 	</body>
 </html>
-<script>
-$(document).ready(function(){
-  $("#popupbtn").click(function(){
-	//   alert("kjfsydgbsfhgdfdf");    
-    $("#myModal").toggle();
-  });
-  });
 
-</scrip>
