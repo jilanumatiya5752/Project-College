@@ -1,5 +1,5 @@
 <?php include 'db.php';
-// require('top.php');
+require('top.php');
 session_start();
 
 
@@ -33,7 +33,7 @@ $projectname=$res['projectname'];
         </div>
         <div class="col-sm-6">  
      <form action="" method="POST" enctype='multipart/form-data'>
-  <div class="login_form">
+  <div class="login_form" style="padding-top: 120px;">
 <?php 
 if(isset($_POST['update_profile'])){
   $name=$res['name'];
