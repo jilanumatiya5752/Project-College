@@ -13,6 +13,8 @@ $result = mysqli_query($db, $i);
 <?php
 $i  = "SELECT * FROM Register WHERE id='$id'";
 $result = mysqli_query($db, $i);
+// print_r($result);
+// exit;
 if(mysqli_num_rows($result) > 0)
 		{
 	foreach($result as $res)	

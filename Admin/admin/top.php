@@ -62,12 +62,16 @@ include 'db.php';
   
  
       <div class="profile">
-<div class="profile-image">
-    <?php echo $shortName; ?>
+<!-- <div class="profile-image">
+    <?php
+    //  echo $shortName;
+     ?>
    
 </div>
-<h4><?php echo $fullName; ?></h4>
-</div>
+<h4><?php
+//  echo $fullName;
+  ?></h4>
+</div> -->
       <div class="dropdown">
         <button class="dropbtn">
         <?php
