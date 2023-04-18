@@ -118,6 +118,7 @@ $result = mysqli_query($db,$query);
 				{ 
 		$x = explode(",",$row['createdby']);				
         if($pid == $row['createdby']){
+
         $slected="selected";
          }else{
         $slected="";
