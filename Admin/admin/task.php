@@ -116,10 +116,8 @@ $result = mysqli_query($db,$query);
 <?php
     foreach($result as $row)
 				{ 
-		$x = explode(",",$row['createdby']);
-					
-         if($pid == $row['createdby']){
-						
+		$x = explode(",",$row['createdby']);				
+        if($pid == $row['createdby']){
         $slected="selected";
          }else{
         $slected="";
@@ -258,6 +256,8 @@ if(mysqli_num_rows($query_run) > 0)
 	<?php
 	$id = $les['id'];
 	$f = "SELECT * From save WHERE userid = '$id'";
+    // print_r($f);
+    // exit;
 	$query = mysqli_query($db,$f);
 	foreach ($query as $user): ?>
 	<option value="<?php echo $user['id']; ?>" <?php echo in_array($user['id'], $selected_values) ? 'selected' : ''; ?>><?php echo $user['status']; ?></option>
