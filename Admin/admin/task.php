@@ -197,6 +197,8 @@ if(mysqli_num_rows($query_run) > 0)
                         <th>Id</th>
                         <th>Task</th>
                         <th>createdby</th> 
+                        <th>status</th>
+                        <th>completed</th>
                         <th>view</th>
                     </tr>
                 </tbody>
@@ -251,6 +253,32 @@ if(mysqli_num_rows($query_run) > 0)
         }
     }
     ?>
+    <td>
+	<select name="status[]" class="form-control form-control-lg select2" id="created-by">
+	<?php
+	$id = $les['id'];
+	$f = "SELECT * From save WHERE userid = '$id'";
+	$query = mysqli_query($db,$f);
+	foreach ($query as $user): ?>
+	<option value="<?php echo $user['id']; ?>" <?php echo in_array($user['id'], $selected_values) ? 'selected' : ''; ?>><?php echo $user['status']; ?></option>
+	<?php  endforeach; ?>
+	</select>
+	</div>
+	</td>
+    <?php
+    if($user['status'] == review){
+        ?>
+        <td><button id="btn" class="Completed" name="cmt"><a href="bottom.php?id=<?= $les["id"]; ?>">Completed</a></button></td>
+        <?php
+    }else{
+        ?>
+        <td></td>
+        <?php
+    }
+    ?>
+    
+    
+    </td>
         <td><button type="button" id="popupbtn" class="btn btn-danger popup-buton" data-toggle="modal"data-id="<?php echo $les['id']?>"data-target="#myModal<?php echo $les['id']?>">View</button></td>
       <?php            
       }

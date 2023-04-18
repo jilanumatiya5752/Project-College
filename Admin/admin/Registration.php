@@ -37,8 +37,8 @@ if(isset($_POST['sub'])){
    	// print_r($result);
     //  exit;
   
+    header("Location: http://localhost/jilanumatiya/Projecttask/Admin/admin/manageuser.php? msg=Edit Succesfull");
   }  
-
 ?>      
 
 

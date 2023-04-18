@@ -15,6 +15,7 @@ if(isset($_POST['formData']))
 	$comment = $_POST['comment'];
 	$category = $_POST['cmtid'];
 	$cmt = $_POST['cmt'];
+	// $status = $_POST['status'];
    // Insert comment into database
 	$query = "INSERT INTO cmt(comment, cmtid, userid, cmt) VALUES ('$comment', '$category', '$userid', '$cmt')";
 	$result = mysqli_query($db, $query);

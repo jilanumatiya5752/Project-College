@@ -48,12 +48,12 @@ include 'db.php';
           </a>
         </li> -->
 
-       <li>
+       <!-- <li>
           <a href="completepr.php">
             <i class='bx bx-book' ></i>
             <span class="links_name">Complete task</span>
           </a>
-        </li>
+        </li> -->
         <!-- <li>
           <a href="manageuser.php">
             <i class='bx bx-user' ></i>
@@ -91,10 +91,10 @@ include 'db.php';
         <i class='bx bx-list-ul'></i>
           <a href="task.php">Task</a>
         </div> -->
-        <div>
+        <!-- <div>
         <i class='bx bx-book'></i>
           <a href="completepr.php">Complete Task</a>
-        </div>
+        </div> -->
         
       </div>
       

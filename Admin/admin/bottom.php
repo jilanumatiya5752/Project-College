@@ -1,22 +1,16 @@
 <?php
+$p_id = $_REQUEST['id'];
+// print_r($p_id);
+// exit;
+include 'db.php';
+// print_r($_GET);
+// exit;
 $id = $_GET['id'];
- $query = "SELECT * FROM project where id = $id";
-     
-  $result = $db->query($query);
-   ?>
-    <td><select id="createdby" name="createdby" value="<?php echo $createdby;?>"class="form-control form-control-lg select2">
-        <?php
-       foreach($result as $row)
+ $i  = "UPDATE `tsk` SET `type`='1' WHERE id='$id'";
+//  print_r($i );
+//     exit;	
+ $query = mysqli_query($db,$i);
+ 
+ header("Location:http://localhost/jilanumatiya/Projecttask/Admin/admin/completepr.php");
+?>
 
-       { 
-       if($pid == $row['createdby']){
-            $slected="selected";
-       }else{
-           $slected="";
-       }
-                     
-       ?>
-       <option value="<?php echo $row['createdby'];?>" <?php echo $slected; ?>><?php echo $row['createdby'];?></option>';
-  <?php }
-      ?>
-                </select>

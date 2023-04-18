@@ -20,6 +20,7 @@ include 'top.php';
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="jilan.js"></script>
 	<script src="data.js"></script>
+	<script src="save.js"></script>
 	<title>Document</title>
 	<style>
 table, th, td {
@@ -67,7 +68,7 @@ table, th, td {
 	        <tr>
 			<th><b>id</b></th>
 			<th><b>Task</b></th>
-			<th><b>Completed</b></th>
+			<th><b>Status</b></th>
 			<th><b>View</b></th>
 			</tr>
 			</tbody>
@@ -102,13 +103,26 @@ table, th, td {
 						 foreach($query as $gty)   
 						
 					 {
-						// print_r($row);
+						// print_r($gty);
 						// exit;
 			?>
 			<tr>
 				<td><?php echo $gty['id']?></td>
 				<td name="task"  value="<?php echo $gty['id'] ?>"><?php echo $gty['task']?></td>
-				<td><button id="btn" class="Completed" name="cmt"><a href="bottom.php?id=<?= $gty["id"]; ?>">Completed</a></button></td>
+				<td>
+				<select name="status[]" class="form-control form-control-lg select2" id="created-by">
+						<?php
+						$id = $gty['id'];
+						$f = "SELECT * From save WHERE userid = '$id'";
+						$query = mysqli_query($db,$f);
+						foreach ($query as $user): ?>
+						<option value="<?php echo $user['id']; ?>" <?php echo in_array($user['id'], $selected_values) ? 'selected' : ''; ?>><?php echo $user['status']; ?></option>
+						<?php  endforeach; ?>
+					</select>
+				</div>
+				</td>
+				<!-- <td><button id="btn" class="Completed" name="cmt"><a href="bottom.php?id=<?
+				//= $gty["id"]; ?>">Completed</a></button></td> -->
                 <td><button  type="button" id="popupbtn" class="btn btn-danger popup-buton" data-toggle="modal" data-id ="<?php echo $gty['id']?>" data-target="#myModal<?php echo $gty['id']?>">View</button></td>
 			</tr>
 
@@ -169,9 +183,23 @@ table, th, td {
 					}
 					?>
 					</h5>
+				   </span>
+				   <form>
+					   <div class="selectsection">
+				   <span>
+						<h5>Status: 
 					
-					</span>
-						
+					<select name="status" id="status" class="status">
+					<option value="pending">pending</option>
+					<option value="working">working</option>
+					<option value="review">review</option>
+					</select>
+							<input type="hidden" name="userid" class="userid" value=<?= $gty['id']; ?>>
+							<button id="btn"class="btn btn-primary btn-sm shadow-none popup-buton-er" name="post" data-toggle="modal" save ="<?php echo $gty['id']?>" data-target="#post<?php echo $gty['id']?>">save</button>
+				</h5>
+				</span>
+						</div>
+				</form>	
 					<h4>Discussion:-</h4>
 					<div class="container" style="display:block;border: 1px solid black;">
                    <div class="d-flex justify-content-center row">

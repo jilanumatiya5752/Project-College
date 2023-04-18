@@ -34,7 +34,12 @@ include 'db.php';
             <span class="links_name">Project</span>
           </a>
         </li>
-      
+        <li>
+          <a href="completepr.php">
+            <i class='bx bx-box' ></i>
+            <span class="links_name">complete task</span>
+          </a>
+        </li>
         <li>
           <a href="manageuser.php">
             <i class='bx bx-user' ></i>
