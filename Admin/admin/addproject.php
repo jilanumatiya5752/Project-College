@@ -17,7 +17,7 @@ if(isset($_POST['sub'])){
   $xyz= implode(",",$client_cat);
 
   if($_FILES['image']['name']){
-    move_uploaded_file($_FILES['image']['tmp_name'], "upload/".$_FILES['image']['name']);
+    move_uploaded_file($_FILES['image']['tmp_name'], "/jilanumatiya/Projecttask/Admin/upload/".$_FILES['image']['name']);
      $image=$_FILES['image']['name'];
 
 }

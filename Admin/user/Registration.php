@@ -17,9 +17,9 @@ if(isset($_POST['sub'])){
 	// header ('location:/admin/top.php');
 
   $password = md5($password);
-// $target_dir = "upload/";
+// $target_dir = "/jilanumatiya/Projecttask/Admin/upload/";
   if($_FILES['image']['name']){
-		move_uploaded_file($_FILES['image']['tmp_name'], "upload/".$_FILES['image']['name']);
+		move_uploaded_file($_FILES['image']['tmp_name'], "/jilanumatiya/Projecttask/Admin/upload/".$_FILES['image']['name']);
 		 $image=$_FILES['image']['name'];
 //      print_r($image);
 //      exit;

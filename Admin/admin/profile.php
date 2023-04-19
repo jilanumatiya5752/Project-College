@@ -42,7 +42,7 @@ background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 1
           <div class="row g-0">
             <div class="col-md-4 gradient-custom text-center text-white"
               style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-              <img src="upload/<?= $row['image']; ?>"
+              <img src="/jilanumatiya/Projecttask/Admin/upload/<?= $row['image']; ?>"
                 alt="Avatar" class="rounded-circle my-5" style="width: 80px;" />
                 <h4 style="color:black"><?=$row['name'] ?></h4>
                 <br>

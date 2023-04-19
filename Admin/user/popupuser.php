@@ -70,7 +70,7 @@ foreach($query as $row) {
 
 		?>
 			 <span class="d-flex flex-row align-items-start">
-            <img class="rounded-circle" src="upload/<?= $row['image']; ?>" height="25px" width="25px">
+            <img class="rounded-circle" src="/jilanumatiya/Projecttask/Admin/upload/<?= $row['image']; ?>" height="25px" width="25px">
             <?= $output ?>
         </span>
 	
@@ -93,7 +93,7 @@ foreach($query as $row) {
 			  
         ?>  
 		 <span class="d-flex flex-row align-items-start">
-            <img class="rounded-circle" src="upload/<?= $row['image']; ?>" height="25px" width="25px">
+            <img class="rounded-circle" src="/jilanumatiya/Projecttask/Admin/upload/<?= $row['image']; ?>" height="25px" width="25px">
             <?= $output ?>
         </span>
 		<?php

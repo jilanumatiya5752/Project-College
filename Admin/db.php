@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$target_dir = "upload/";
+$target_dir = "/jilanumatiya/Projecttask/Admin/upload/";
 $servername="localhost:3306";
 $username="root";
 $password="Root#123";

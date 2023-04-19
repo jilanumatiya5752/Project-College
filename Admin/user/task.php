@@ -174,7 +174,7 @@ table, th, td {
 							
 							{
 						?>  
-							<img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px">
+							<img class="rounded-circle" src="/jilanumatiya/Projecttask/Admin/upload/<?= $res['image'];?>" height='25px' width="25px">
 					
 							
 						<?php
@@ -220,7 +220,7 @@ table, th, td {
 							{
 								// print_r($res);
 					?>
-                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px">
+                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="/jilanumatiya/Projecttask/Admin/upload/<?= $res['image'];?>" height='25px' width="25px">
                         <div class="d-flex flex-column justify-content-start ml-2"><span style="font-size: 17px;"class="d-block font-weight-bold name"><?php echo $res['name']?></span></div>
                     </div>
 
@@ -253,7 +253,7 @@ table, th, td {
 				   <br>
 				   <input type="hidden" name="cmtid" class="cmtid" value=<?= $gty['id']; ?>>
 				
-				<div class="d-flex flex-row align-items-start image"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px">
+				<div class="d-flex flex-row align-items-start image"><img class="rounded-circle" src="/jilanumatiya/Projecttask/Admin/upload/<?= $res['image'];?>" height='25px' width="25px">
 				<textarea class="form-control ml-1 shadow-none textarea" id="msg" name="comment" required></textarea></div>
 				<input type="hidden" value="1" class="cmt" name="cmt">
 				<div class="mt-2 text-right"><center><button id="btn"class="btn btn-primary btn-sm shadow-none post" name="post" data-toggle="modal" formData ="<?php echo $gty['id']?>" data-target="#post<?php echo $gty['id']?>">Post comment</button></center></div>

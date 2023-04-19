@@ -40,7 +40,7 @@ if(isset($_POST['update_profile'])){
   $email=$res['email'];
   $projectname=$res['projectname'];
 
-$folder='upload/';
+$folder='/jilanumatiya/Projecttask/Admin/upload/';
 $file = $_FILES['image']['tmp_name'];  
 $file_name = $_FILES['image']['name']; 
 
@@ -124,8 +124,8 @@ foreach($error as $error){
                  if($image==NULL)
             
                 {
-                 echo '<img src="http://localhost/jilanumatiya/Projecttask/Admin/user/upload/'.$image.'" style="height:80px;width:auto;border-radius:30%;">';
-                } else { echo '<img src="upload/'.$image.'" style="height:50%;width:auto;border-radius:5%;">';}?> 
+                 echo '<img src="http://localhost/jilanumatiya/Projecttask/Admin/upload/'.$image.'" style="height:80px;width:auto;border-radius:30%;">';
+                } else { echo '<img src="/jilanumatiya/Projecttask/Admin/upload/'.$image.'" style="height:50%;width:auto;border-radius:5%;">';}?> 
               <?php
                 }
               ?>

@@ -85,7 +85,7 @@ include 'db.php';
         $result = mysqli_query($db,$r);
         foreach($result as $row){
         ?>  
-        <img class="rounded-circle" src="upload/<?= $row['image']; ?>" height="55px" width ="50px">
+        <img class="rounded-circle" src="/jilanumatiya/Projecttask/Admin/upload/<?= $row['image']; ?>" height="55px" width ="50px">
       <?php
     }
     ?>

@@ -51,7 +51,7 @@ $result = mysqli_query($db,$i);
 							
 							{
 					?>
-                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px">
+                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="/jilanumatiya/Projecttask/Admin/upload/<?= $res['image'];?>" height='25px' width="25px">
                         <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name"><?php echo $res['name']?></span></div>
                     </div>
                     <div class="mt-2">
@@ -107,7 +107,7 @@ $result = mysqli_query($db,$i);
 			   </td>
 				   <br>
 				   <input type="hidden" name="cmtid"style=" display:none" value=<?php echo $category; ?>>
-				<div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="upload/<?= $res['image'];?>" height='25px' width="25px"><textarea class="form-control ml-1 shadow-none textarea" name="comment"></textarea></div>
+				<div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="/jilanumatiya/Projecttask/Admin/upload/<?= $res['image'];?>" height='25px' width="25px"><textarea class="form-control ml-1 shadow-none textarea" name="comment"></textarea></div>
                     <div class="mt-2 text-right"><center><button id="cmt"class="btn btn-primary btn-sm shadow-none" type="submit" name="post">Post comment</button></center></div>
                 </div>
 			</form>

@@ -23,7 +23,7 @@ if(mysqli_num_rows($result) > 0)
 	{
 ?>
 
-	<img class="rounded-circle" src="upload/<?= $res['image']?>" height="25px" width="25px">
+	<img class="rounded-circle" src="/jilanumatiya/Projecttask/Admin/upload/<?= $res['image']?>" height="25px" width="25px">
 	<?php
 }
 	

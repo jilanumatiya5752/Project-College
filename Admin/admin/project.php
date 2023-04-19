@@ -70,7 +70,7 @@ session_start();
         {
           ?>  
           
-        <img class="rounded-circle" src="upload/<?= $row['image'];?>" height='25px' width="25px">
+        <img class="rounded-circle" src="/jilanumatiya/Projecttask/Admin/upload/<?= $row['image'];?>" height='25px' width="25px">
         <?php
              }
            }
