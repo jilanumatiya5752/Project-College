@@ -110,15 +110,27 @@ table, th, td {
 				<td><?php echo $gty['id']?></td>
 				<td name="task"  value="<?php echo $gty['id'] ?>"><?php echo $gty['task']?></td>
 				<td>
-				<select name="status[]" class="form-control form-control-lg select2" id="created-by">
-						<?php
-						$id = $gty['id'];
-						$f = "SELECT * From save WHERE userid = '$id'";
-						$query = mysqli_query($db,$f);
-						foreach ($query as $user): ?>
-						<option value="<?php echo $user['id']; ?>" <?php echo in_array($user['id'], $selected_values) ? 'selected' : ''; ?>><?php echo $user['status']; ?></option>
-						<?php  endforeach; ?>
-					</select>
+				<select name="status" class="form-control form-control-lg select2" id="status">
+				<?php
+				$id = $gty['id'];
+				$f = "SELECT * From save WHERE userid = '$id'";
+				$query = mysqli_query($db,$f);
+				foreach ($query as $user){
+					$selected = $user['status'];
+					// print_r($selected);
+					// exit;
+					// print_r($user);
+					// exit;
+					if($selected == $user['status']){ // compare to user status, not user ID
+						$selected = $user['status']; // set selected status to user status
+					}
+				?>
+				<option value="<?= $user['id']; ?>" <?= ($user['status'] == "pending" && $selected == "pending") ? 'selected' : ''; ?>>pending</option>
+				<option value="<?= $user['id']; ?>" <?= ($user['status'] == "working" && $selected == "working") ? 'selected' : ''; ?>>working</option>
+				<option value="<?= $user['id']; ?>" <?= ($user['status'] == "review" && $selected == "review") ? 'selected' : ''; ?>>review</option>
+				<?php } ?>
+			</select>
+
 				</div>
 				</td>
 				<!-- <td><button id="btn" class="Completed" name="cmt"><a href="bottom.php?id=<?
